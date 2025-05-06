@@ -3,7 +3,11 @@ package lightbulb.model;
 import java.util.EnumSet;
 
 /**
- * Types of wires: L, I, T, X.
+ * Výčtový typ WireType definuje různé typy vodičů (L, I, T, X),
+ * které se mohou objevit ve hře. Každý typ má specifický tvar
+ * a způsob, jakým propojuje strany buňky.
+ *
+ * @author Gleb Litvinchuk (xlitvi02)
  */
 public enum WireType {
     L(EnumSet.of(Direction.UP, Direction.RIGHT)),

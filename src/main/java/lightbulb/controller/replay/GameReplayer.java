@@ -13,7 +13,13 @@ import java.io.*;
 import java.nio.file.*;
 import java.util.*;
 
-/** Читает *.jsonl, даёт stepForward / stepBack / resumePlay(). */
+/**
+ * Třída GameReplayer umožňuje načítání a přehrávání zaznamenaných herních seancí
+ * z logovacích souborů. Podporuje krokování vpřed a vzad v záznamu
+ * a také možnost pokračovat ve hře od aktuálního bodu přehrávání.
+ *
+ * @author Gleb Litvinchuk (xlitvi02)
+ */
 public final class GameReplayer {
 
     private final Board board;

@@ -2,7 +2,13 @@ package lightbulb.model;
 
 import java.util.EnumSet;
 
-/** Power source: has a one side input */
+/**
+ * Třída PowerSource reprezentuje herní prvek zdroje elektrické energie.
+ * Je to výchozí bod pro napájení elektrického obvodu.
+ * Dědí od třídy Element.
+ *
+ * @author Gleb Litvinchuk (xlitvi02)
+ */
 public class PowerSource extends Element {
 
     @Override

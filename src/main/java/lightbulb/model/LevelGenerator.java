@@ -5,8 +5,11 @@ import lightbulb.controller.GameController;
 import java.util.*;
 
 /**
- * LevelGenerator 2.2 - lamps always with input,
- * shuffle does not touch the “cross” around the lamp.
+ * Třída LevelGenerator je zodpovědná za generování nových herních úrovní.
+ * Vytváří herní desku se zdrojem, žárovkami a vodiči tak, aby existovalo
+ * alespoň jedno řešení, a následně prvky náhodně pootočí.
+ *
+ * @author Gleb Litvinchuk (xlitvi02)
  */
 public final class LevelGenerator {
 

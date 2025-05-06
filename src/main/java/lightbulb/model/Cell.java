@@ -1,6 +1,12 @@
 package lightbulb.model;
 
-/** A class representing a cell of the playing field. */
+/**
+ * Třída Cell reprezentuje jednu buňku (políčko) na herní desce.
+ * Buňka může obsahovat herní prvek (Element) a uchovává informace
+ * o jeho aktuálním a správném (cílovém) otočení.
+ *
+ * @author Gleb Litvinchuk (xlitvi02)
+ */
 public class Cell {
 
     private Element element;

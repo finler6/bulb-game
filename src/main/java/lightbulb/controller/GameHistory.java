@@ -14,6 +14,14 @@ import java.time.Instant;
 import java.util.ArrayDeque;
 import java.util.Deque;
 
+/**
+ * Třída GameHistory implementuje funkcionalitu zpět (undo) a znovu (redo)
+ * pomocí návrhového vzoru Command. Zajišťuje také logování herních akcí
+ * a počátečního stavu herní desky pro možnost pozdějšího přehrání.
+ * Jedná se o singleton.
+ *
+ * @author Gleb Litvinchuk (xlitvi02)
+ */
 public final class GameHistory {
 
     /* ---------- singleton ---------- */

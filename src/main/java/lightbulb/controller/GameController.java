@@ -5,7 +5,11 @@ import lightbulb.model.*;
 import java.util.*;
 
 /**
- * Controller to control the game and check cell connections.
+ * Třída GameController spravuje herní logiku, aktualizuje stav připojení
+ * jednotlivých prvků na herní desce a vyhodnocuje podmínky vítězství ve hře.
+ * Zajišťuje interakci mezi modelem (herní deskou) a uživatelským rozhraním.
+ *
+ * @author Gleb Litvinchuk (xlitvi02)
  */
 public class GameController {
     private Board board;

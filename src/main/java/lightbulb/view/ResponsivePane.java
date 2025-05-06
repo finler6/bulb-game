@@ -5,6 +5,14 @@ import javafx.beans.binding.Bindings;
 import javafx.scene.Group;
 import javafx.scene.layout.StackPane;
 
+/**
+ * Třída ResponsivePane je vlastní JavaFX panel (dědí od StackPane),
+ * který zajišťuje, že jeho obsah (typicky BoardView) se bude škálovat
+ * tak, aby se vešel do dostupného prostoru rodičovského kontejneru
+ * při zachování poměru stran.
+ *
+ * @author Gleb Litvinchuk (xlitvi02)
+ */
 public class ResponsivePane extends StackPane {
 
     public ResponsivePane(BoardView board) {

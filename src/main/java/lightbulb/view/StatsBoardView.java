@@ -6,6 +6,13 @@ import javafx.scene.control.Label;
 import javafx.scene.layout.StackPane;
 import lightbulb.model.*;
 
+/**
+ * Třída StatsBoardView je specializovaná verze BoardView určená pro zobrazení
+ * statistik ve statistickém okně. Ukazuje informace o počtu provedených
+ * a minimálně potřebných otočení pro každou buňku.
+ *
+ * @author Gleb Litvinchuk (xlitvi02)
+ */
 public class StatsBoardView extends BoardView {
 
     private int[][] made, need;

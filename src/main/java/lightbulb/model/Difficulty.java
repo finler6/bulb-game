@@ -1,6 +1,13 @@
 // src/main/java/view/Difficulty.java
 package lightbulb.model;
 
+/**
+ * Výčtový typ Difficulty definuje různé úrovně obtížnosti hry (EASY, MEDIUM, HARD).
+ * Každá úroveň obtížnosti má přiřazené specifické parametry, jako jsou rozměry
+ * herní desky, počet žárovek, časový limit atd.
+ *
+ * @author Gleb Litvinchuk (xlitvi02)
+ */
 public enum Difficulty {
     EASY(8,  8,  4, 3, 2, 0),
     MEDIUM(10,10, 6, 6, 3, 0),

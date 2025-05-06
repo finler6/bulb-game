@@ -4,7 +4,14 @@ package lightbulb.controller.replay;
 import lightbulb.model.Board;
 import lightbulb.model.command.Command;
 
-/** A replay command that stores the timer value as well. */
+/**
+ * Třída RotateReplayCmd představuje příkaz pro přehrávání akce otočení herního prvku.
+ * Uchovává informace o předchozím a následujícím stavu otočení a hodnotě časovače
+ * pro přesnou rekonstrukci herního stavu během přehrávání.
+ * Implementuje rozhraní Command.
+ *
+ * @author Gleb Litvinchuk (xlitvi02)
+ */
 public class RotateReplayCmd implements Command {
     private final Board board;
     private final int r, c, prev, next;

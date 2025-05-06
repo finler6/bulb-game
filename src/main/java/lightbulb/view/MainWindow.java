@@ -33,6 +33,8 @@ import java.nio.file.FileSystems;
 import javafx.scene.Group;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+import java.net.URL;
+import javafx.application.Platform;
 
 import lightbulb.model.Board;
 import lightbulb.model.Difficulty;
@@ -40,6 +42,14 @@ import lightbulb.model.LevelGenerator;
 import lightbulb.model.persistence.BoardSerializer;
 import lightbulb.model.LevelData;
 
+/**
+ * Třída MainWindow je hlavním vstupním bodem JavaFX aplikace.
+ * Spravuje zobrazení jednotlivých scén (hlavní menu, výběr obtížnosti,
+ * herní obrazovka, obrazovka přehrávání, nastavení, statistiky),
+ * inicializuje hru a řídí celkový tok uživatelského rozhraní.
+ *
+ * @author Gleb Litvinchuk (xlitvi02)
+ */
 public class MainWindow extends Application {
 
     /* -------------------- fiels ------------------------------------------------ */
@@ -226,7 +236,6 @@ public class MainWindow extends Application {
     private void handleRotateRequest(int r, int c) {
         if (currentBoard == null) return;
         int currentTime = (counter != null) ? counter.get() : 0;
-        System.out.println("handleRotateRequest вызван: " + r + "," + c + ", время: " + currentTime);
         GameHistory.getInstance().doRotate(currentBoard, r, c, currentTime);
     }
 
@@ -406,22 +415,64 @@ public class MainWindow extends Application {
 
     private List<Path> discoverLevels() {
         List<Path> levelFiles = new ArrayList<>();
-        String mapsResourcePath = "/maps";
+        String mapsResourcePath = "maps";
 
         try {
-            URI uri = getClass().getResource(mapsResourcePath).toURI();
-            Path myPath;
-            if (uri.getScheme().equals("jar")) {
-                try (FileSystem fileSystem = FileSystems.newFileSystem(uri, Collections.emptyMap())) {
-                    myPath = fileSystem.getPath(mapsResourcePath);
-                    levelFiles = walkAndSortLevels(myPath);
-                }
-            } else {
-                myPath = Paths.get(uri);
-                levelFiles = walkAndSortLevels(myPath);
+            ClassLoader classLoader = Thread.currentThread().getContextClassLoader();
+            if (classLoader == null) {
+                classLoader = getClass().getClassLoader();
             }
+
+            URL mapsUrl = null;
+            if (classLoader != null) {
+                mapsUrl = classLoader.getResource(mapsResourcePath);
+            }
+
+            if (mapsUrl == null) {
+                mapsUrl = getClass().getResource("/" + mapsResourcePath);
+            }
+
+            if (mapsUrl == null) {
+                System.err.println("FATAL ERROR: Resource directory '/" + mapsResourcePath + "' not found in classpath!");
+                System.err.println("Please ensure 'src/main/resources/" + mapsResourcePath + "' exists and is included in the build.");
+                Platform.runLater(() -> {
+                    new Alert(Alert.AlertType.ERROR, "Cannot find levels directory (resources/" + mapsResourcePath + ").\nPlease check application resources.").showAndWait();
+                });
+                return Collections.emptyList();
+            }
+
+            URI uri = mapsUrl.toURI();
+            Path myPath;
+            FileSystem fileSystem = null;
+
+            try {
+                if (uri.getScheme().equals("jar")) {
+                    try {
+                        myPath = Paths.get(uri);
+                    } catch (java.nio.file.FileSystemNotFoundException e) {
+                        fileSystem = FileSystems.newFileSystem(uri, Collections.emptyMap());
+                        myPath = fileSystem.getPath(mapsResourcePath);
+                    }
+                } else {
+                    myPath = Paths.get(uri);
+                }
+
+                if (!Files.exists(myPath) || !Files.isDirectory(myPath)) {
+                    System.err.println("ERROR: Path found but is not a directory or doesn't exist: " + myPath);
+                    return Collections.emptyList();
+                }
+
+                levelFiles = walkAndSortLevels(myPath);
+
+            } finally {
+
+            }
+
         } catch (IOException | URISyntaxException e) {
             System.err.println("Error discovering levels: " + e.getMessage());
+            e.printStackTrace();
+        } catch (Exception e) {
+            System.err.println("Unexpected error during level discovery: " + e.getMessage());
             e.printStackTrace();
         }
         return levelFiles;

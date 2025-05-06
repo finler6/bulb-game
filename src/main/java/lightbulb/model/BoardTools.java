@@ -3,6 +3,13 @@ package lightbulb.model;
 
 import java.util.*;
 
+/**
+ * Utiltní třída BoardTools poskytuje statické metody pro analýzu herní desky,
+ * například metodu pro výpočet, které herní prvky jsou aktuálně napájeny
+ * od zdroje energie.
+ *
+ * @author Gleb Litvinchuk (xlitvi02)
+ */
 public final class BoardTools {
     /** true if (r,c) is connected to the source at current turns */
     public static boolean[][] computePowered(Board b){

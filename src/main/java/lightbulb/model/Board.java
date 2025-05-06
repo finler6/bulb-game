@@ -8,7 +8,11 @@ import java.util.Queue;
 import java.util.ArrayDeque;
 
 /**
- * The playing field is a two-dimensional array of cells.
+ * Třída Board reprezentuje herní desku jako dvourozměrné pole buněk (Cell).
+ * Uchovává stav jednotlivých buněk, spravuje posluchače změn na desce,
+ * pamatuje si řešení úrovně a informace o počtu provedených tahů.
+ *
+ * @author Gleb Litvinchuk (xlitvi02)
  */
 public class Board {
 

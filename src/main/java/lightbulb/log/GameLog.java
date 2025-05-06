@@ -3,6 +3,13 @@ package lightbulb.log;
 
 import java.io.*;
 
+/**
+ * Třída GameLog poskytuje jednoduchou funkcionalitu pro zápis herních událostí
+ * (ve formátu JSON řádků) do textového souboru.
+ * Slouží k perzistentnímu ukládání průběhu hry.
+ *
+ * @author Gleb Litvinchuk (xlitvi02)
+ */
 public class GameLog implements Closeable {
     private final BufferedWriter out;
 

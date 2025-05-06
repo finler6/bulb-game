@@ -2,6 +2,13 @@ package lightbulb.view;
 
 import java.util.prefs.Preferences;
 
+/**
+ * Třída GameSettings spravuje a perzistentně ukládá uživatelská nastavení hry,
+ * jako jsou vybraný skin pro herní prvky a téma vzhledu aplikace (světlé/tmavé).
+ * Pro ukládání využívá Java Preferences API.
+ *
+ * @author Gleb Litvinchuk (xlitvi02)
+ */
 public class GameSettings {
     // --- Skin Settings ---
     private static final String SKIN_PREF_KEY = "gameSkin";

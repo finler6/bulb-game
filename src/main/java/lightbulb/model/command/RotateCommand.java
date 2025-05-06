@@ -4,6 +4,14 @@ import lightbulb.model.Board;
 import lightbulb.model.Cell;
 import java.time.Instant;
 
+/**
+ * Třída RotateCommand reprezentuje konkrétní příkaz pro akci otočení
+ * herního prvku v buňce. Umožňuje vykonání a zrušení této akce,
+ * což je využíváno pro funkcionalitu undo/redo a logování.
+ * Implementuje rozhraní Command.
+ *
+ * @author Gleb Litvinchuk (xlitvi02)
+ */
 public class RotateCommand implements Command {
 
     private final Board board;

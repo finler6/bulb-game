@@ -1,5 +1,12 @@
 package lightbulb.model;
 
+/**
+ * Výčtový typ Direction reprezentuje čtyři základní směry (UP, RIGHT, DOWN, LEFT)
+ * na herní desce. Poskytuje metody pro rotaci směru a určení opačného směru
+ * a také pro získání posunů v řádcích a sloupcích.
+ *
+ * @author Gleb Litvinchuk (xlitvi02)
+ */
 public enum Direction {
     UP, RIGHT, DOWN, LEFT;
 

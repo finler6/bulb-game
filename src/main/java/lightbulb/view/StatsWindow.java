@@ -8,6 +8,13 @@ import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 import lightbulb.model.Board;
 
+/**
+ * Třída StatsWindow představuje samostatné okno (JavaFX Stage) pro zobrazení
+ * statistik hry na konci hry. Využívá StatsBoardView k vizualizaci
+ * detailních statistik pro jednotlivé buňky.
+ *
+ * @author Gleb Litvinchuk (xlitvi02)
+ */
 public class StatsWindow extends Stage {
 
     public StatsWindow(Board board){

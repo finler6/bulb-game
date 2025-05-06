@@ -9,6 +9,14 @@ import lightbulb.model.Board;
 import lightbulb.model.BoardListener;
 import lightbulb.model.Cell;
 
+/**
+ * Třída HintBoardView je specializovaná verze BoardView určená pro zobrazení
+ * nápovědy v okně s подсказками. Zobrazuje počet otáček potřebných
+ * k dosažení správné pozice pro každý otočný prvek.
+ * Je neinteraktivní a implementuje BoardListener pro aktualizace.
+ *
+ * @author Gleb Litvinchuk (xlitvi02)
+ */
 public class HintBoardView extends BoardView implements BoardListener {
 
     public HintBoardView(Board board, GameController gc) {

@@ -2,7 +2,14 @@ package lightbulb.model;
 
 import java.util.EnumSet;
 
-/** Wire: four forms — I, L, T, X. */
+/**
+ * Třída Wire reprezentuje herní prvek vodiče. Vodiče slouží k propojení
+ * ostatních prvků na herní desce a mohou mít různé typy (WireType),
+ * které určují, jaké strany buňky propojují.
+ * Dědí od třídy Element.
+ *
+ * @author Gleb Litvinchuk (xlitvi02)
+ */
 public class Wire extends Element {
 
     private final WireType type;

@@ -4,7 +4,14 @@ import com.google.gson.*;
 
 import lightbulb.model.*;
 
-/** Converts the board to a compact JSON snapshot and back. */
+/**
+ * Třída RotateCommand reprezentuje konkrétní příkaz pro akci otočení
+ * herního prvku v buňce. Umožňuje vykonání a zrušení této akce,
+ * což je využíváno pro funkcionalitu undo/redo a logování.
+ * Implementuje rozhraní Command.
+ *
+ * @author Gleb Litvinchuk (xlitvi02)
+ */
 public final class BoardSerializer {
 
     /* ---------- serialization ---------- */

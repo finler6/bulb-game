@@ -3,8 +3,11 @@ package lightbulb.model;
 import java.util.EnumSet;
 
 /**
- * Base class of any element in the field (wire, lamp, source).
- * Stores a single rotation angle and provides general rotation operations.
+ * Abstraktní třída Element je základní třídou pro všechny interaktivní prvky,
+ * které se mohou nacházet na herní desce (např. vodiče, žárovky, zdroj).
+ * Definuje společné vlastnosti jako je rotace a informace o připojeních.
+ *
+ * @author Gleb Litvinchuk (xlitvi02)
  */
 public abstract class Element {
 

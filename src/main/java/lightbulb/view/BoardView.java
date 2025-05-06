@@ -13,7 +13,14 @@ import java.util.function.BiConsumer;
 
 import lightbulb.model.*;
 
-
+/**
+ * Třída BoardView je JavaFX komponenta zodpovědná za vizuální zobrazení
+ * herní desky. Vykresluje jednotlivé buňky s jejich prvky, barvami
+ * a rotacemi. Zpracovává také uživatelské interakce (kliknutí myší)
+ * pro otáčení prvků.
+ *
+ * @author Gleb Litvinchuk (xlitvi02)
+ */
 public class BoardView extends GridPane {
 
     private static final String IMG_RESOURCE_BASE_PATH = "/img/";

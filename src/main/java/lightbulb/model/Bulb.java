@@ -3,6 +3,13 @@ package lightbulb.model;
 
 import java.util.EnumSet;
 
+/**
+ * Třída Bulb reprezentuje herní prvek žárovky. Žárovka má jeden přívod
+ * a jejím cílem je být napájena zdrojem energie.
+ * Dědí od třídy Element.
+ *
+ * @author Gleb Litvinchuk (xlitvi02)
+ */
 public class Bulb extends Element {
 
     /** Lamp base output (as if rotation == 0). */
